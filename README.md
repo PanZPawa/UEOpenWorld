@@ -39,12 +39,16 @@
 <video src="https://github.com/user-attachments/assets/fb73d674-f3b2-4513-b0ee-11d4262e233c" width="800" controls></video>
 
 
+https://github.com/user-attachments/assets/053510e4-45a6-4d2d-bc5c-532af781fc48
+https://github.com/user-attachments/assets/3fd308e1-c979-4305-952a-f971e8e7fd65
+
+
 
 通过pawnseeing组件看到角色进行追踪
 
 
 
-<video src="videos\ai_ch.mp4"></video>
+<video src="https://github.com/user-attachments/assets/3b3bd9ff-f334-4f39-9a62-89a17170f668" width="800" controls></video>
 
 
 
@@ -56,13 +60,13 @@
 
 角色靠近武器时按E 可以拾取武器
 
-<video src="videos/pick.mp4"></video>
+<video src="https://github.com/user-attachments/assets/38eb948a-2baf-44be-bfb0-4960f8a9d172" width="800" controls></video>
 
 角色两段攻击
 
 
 
-<video src="videos\comb.mp4"></video>
+<video src="https://github.com/user-attachments/assets/1b72e354-444f-4bdf-afd9-474d5cd6eda7" width="800" controls></video>
 
 ```c++
 void AMyCharacter::Attack()
@@ -104,7 +108,7 @@ void AMyCharacter::Attack()
 
 在击中缸时会施加一个临时场将物体打碎，同时会施加一个线性径向场将碎片击飞(未成功实现，还在找bug)
 
-<video src="videos/break.mp4"></video>
+<video src="https://github.com/user-attachments/assets/053510e4-45a6-4d2d-bc5c-532af781fc48" width="800" controls></video>
 
 
 
@@ -163,7 +167,7 @@ ai死亡
 
 ![image-20260415164337462](videos/image-20260415164337462.png)
 
-<video src="videos/die.mp4"></video>
+<video src="https://github.com/user-attachments/assets/3fd308e1-c979-4305-952a-f971e8e7fd65" width="800" controls></video>
 
 
 
