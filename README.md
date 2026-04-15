@@ -37,7 +37,7 @@
 
 ai 定点巡逻、
 
-<video src="videos/ai_pat.mp4"></video>
+<video src="videos/ai_pat.mp4" width="800" controls></video>
 
 
 
