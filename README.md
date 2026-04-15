@@ -21,15 +21,15 @@
 
 自建的多区块地图
 
-![image-20260415170406024](C:\Users\pzp\AppData\Roaming\Typora\typora-user-images\image-20260415170406024.png)
+![image-20260415170406024](videos/image-20260415170406024.png)
 
 
 
 从Fab中加入了地牢关卡
 
-![image-20260415170526945](C:\Users\pzp\AppData\Roaming\Typora\typora-user-images\image-20260415170526945.png)
+![image-20260415170526945](videos\image-20260415170526945.png)
 
-![image-20260415170737094](C:\Users\pzp\AppData\Roaming\Typora\typora-user-images\image-20260415170737094.png)
+![image-20260415170737094](videos\image-20260415170737094.png)
 
 
 
@@ -37,7 +37,7 @@
 
 ai 定点巡逻、
 
-<video src="D:\剪辑\ai巡逻.mp4"></video>
+<video src="videos\ai巡逻.mp4"></video>
 
 
 
@@ -45,25 +45,25 @@ ai 定点巡逻、
 
 
 
-<video src="D:\剪辑\ai追踪.mp4"></video>
+<video src="videos\ai追踪.mp4"></video>
 
 
 
 达到一定距离的时候会对主角进行攻击
 
-![image-20260415162603889](C:\Users\pzp\AppData\Roaming\Typora\typora-user-images\image-20260415162603889.png)
+![image-20260415162603889](videos\image-20260415162603889.png)
 
 
 
 角色靠近武器时按E 可以拾取武器
 
-<video src="D:\剪辑\拾取.mp4"></video>
+<video src="videos\拾取.mp4"></video>
 
 角色两段攻击
 
 
 
-<video src="D:\剪辑\连击.mp4"></video>
+<video src="videos\连击.mp4"></video>
 
 ```c++
 void AMyCharacter::Attack()
@@ -105,7 +105,7 @@ void AMyCharacter::Attack()
 
 在击中缸时会施加一个临时场将物体打碎，同时会施加一个线性径向场将碎片击飞(未成功实现，还在找bug)
 
-<video src="D:\剪辑\打碎.mp4"></video>
+<video src="videos\打碎.mp4"></video>
 
 
 
@@ -142,15 +142,15 @@ void AMyCharacter::Attack()
 	HitReactMontagePlay(Dir);
 ```
 
-![image-20260415171300240](C:\Users\pzp\AppData\Roaming\Typora\typora-user-images\image-20260415171300240.png)
+![image-20260415171300240](videos\image-20260415171300240.png)
 
 ai右侧受击  同时 ai在受到攻击后会显示血条 同时获得攻击对象 当攻击对象距离较远的时候 会隐藏血条
 
-![image-20260415164237798](C:\Users\pzp\AppData\Roaming\Typora\typora-user-images\image-20260415164237798.png)
+![image-20260415164237798](videos\image-20260415164237798.png)
 
 ai左侧受击
 
-![image-20260415164526172](C:\Users\pzp\AppData\Roaming\Typora\typora-user-images\image-20260415164526172.png)
+![image-20260415164526172](videos\image-20260415164526172.png)
 
 
 
@@ -158,13 +158,13 @@ ai左侧受击
 
 为了避免动画被连续触发 在montage开始的时候角色状态会被设置为攻击 在attackend之后才会将当前角色状态改为休闲  攻击状态下无法调用播放函数
 
-![image-20260415170933445](C:\Users\pzp\AppData\Roaming\Typora\typora-user-images\image-20260415170933445.png)
+![image-20260415170933445](videos\image-20260415170933445.png)
 
 ai死亡
 
-![image-20260415164337462](C:\Users\pzp\AppData\Roaming\Typora\typora-user-images\image-20260415164337462.png)
+![image-20260415164337462](videos\image-20260415164337462.png)
 
-<video src="D:\剪辑\die.mp4"></video>
+<video src="videos\die.mp4"></video>
 
 
 
@@ -172,4 +172,4 @@ ai死亡
 
 通过ik重定向 将别的骨骼动画重定向到当前角色上
 
-![image-20260415172326036](C:\Users\pzp\AppData\Roaming\Typora\typora-user-images\image-20260415172326036.png)
+![image-20260415172326036](videos\image-20260415172326036.png)
