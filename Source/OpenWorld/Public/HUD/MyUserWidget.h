@@ -13,5 +13,9 @@ UCLASS()
 class OPENWORLD_API UMyUserWidget : public UUserWidget
 {
 	GENERATED_BODY()
-	
+public:
+
+	void SetMyHealth(float Percent);
+	UPROPERTY(meta = (BindWidget))
+	class UProgressBar* MyHealth;
 };

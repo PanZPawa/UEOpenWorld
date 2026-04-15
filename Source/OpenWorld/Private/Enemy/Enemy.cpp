@@ -1,7 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
-#include "GameFramework/CharacterMovementComponent.h"
 #include "Enemy/Enemy.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "OpenWorld/DebugMacros.h"
@@ -41,9 +40,10 @@ void AEnemy::GetHit(const FVector &Point)
 	//DRAW_SPHERE(Point)
 	if(HealthBarWidget)HealthBarWidget->SetVisibility(true);
 
-
+	EnemyState2 = EEnemyState::EES_Reacting;
 	if (!Attributes->ActorIsAlive()) Die();
 	else DirectionReact(Point);
+	EnemyState2 = EEnemyState::EES_Patrolling;
 
 }
 
@@ -91,7 +91,9 @@ void AEnemy::BeginPlay()
 
 
 	EnemyController = Cast<AAIController>(GetController());
-
+	if (UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance()) {
+		AnimInstance->OnMontageEnded.AddDynamic(this, &AEnemy::OnAttackMontageEnded);
+	}
 	FTimerHandle TimerHandle;
 
 	GetWorldTimerManager().SetTimer(
@@ -150,7 +152,24 @@ void AEnemy::PawnSeen(APawn* SeenPawn)
 
 void AEnemy::Attack()
 {
+
+	if (EnemyState2 == EEnemyState::EES_Reacting) return;
+	if (!bCanAttack) return;
+	bCanAttack = false;
+
+	EnemyState2 = EEnemyState::EES_Attacking;
 	AttackMontagePlay(FName("EnemyAttack2"));
+	GetWorldTimerManager().SetTimer(
+		AttackTimer,
+		this,
+		&AEnemy::ResetAttack,
+		1.5f, 
+		false
+	);
+}
+void AEnemy::ResetAttack()
+{
+	bCanAttack = true;
 }
 
 void AEnemy::AttackMontagePlay(FName AttackNum)
@@ -165,8 +184,9 @@ void AEnemy::AttackMontagePlay(FName AttackNum)
 
 void AEnemy::AttackEnd()
 {
-	EnemyState2 = EEnemyState::EES_Unoccupied;
+	//EnemyState2 = EEnemyState::EES_Unoccupied;
 	EquippedWeapon->GetIgnoreActor().Empty();
+	EnemyState2 = EEnemyState::EES_Patrolling;
 }
 
 void AEnemy::Die()
@@ -175,6 +195,18 @@ void AEnemy::Die()
 	DeathMontagePlay(FName("Die"));
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	SetLifeSpan(6.f);
+}
+
+void AEnemy::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted)
+{
+	if (Montage == AttackMontage) {
+		EnemyState2 = EEnemyState::EES_Unoccupied;
+
+		if (TargetActor) {
+			EnemyState2 = EEnemyState::EES_Chasing;
+			TestMoveTo(TargetActor);
+		}
+	}
 }
 
 // Called every frame

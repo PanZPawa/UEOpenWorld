@@ -53,8 +53,8 @@ public:
 	float PatrolRadius = 200.f;
 
 
-
-
+	UFUNCTION()
+	void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -67,7 +67,11 @@ protected:
 	virtual void AttackMontagePlay(FName AttackNum) override;
 
 	virtual void AttackEnd() override;
+	void ResetAttack();
 private:
+	FTimerHandle AttackTimer;
+
+	bool bCanAttack = true;
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<class AWeapon> Weaponclass;
 	UPROPERTY()

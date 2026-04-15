@@ -75,6 +75,9 @@ void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	Tags.Add(FName("MyCharacter"));
+	if (UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance()) {
+		AnimInstance->OnMontageEnded.AddDynamic(this, &AMyCharacter::OnMontageEnded);
+	}
 	
 }
 
@@ -171,4 +174,12 @@ float AMyCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 
 	}
 	return DamageAmount;
+}
+
+
+void AMyCharacter::OnMontageEnded(UAnimMontage* Montage, bool bInterrupted)
+{
+	if (Montage == GetCharacterMontage()) {
+		ActionState = EActionState::ECS_Unoccupied;
+	}
 }
