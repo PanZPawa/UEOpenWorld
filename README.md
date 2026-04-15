@@ -35,9 +35,8 @@
 
 
 
-ai 定点巡逻、
-
-<video src="videos/ai_pat.mp4" width="800" controls></video>
+### AI定点巡逻演示
+<video src="https://github.com/user-attachments/assets/fb73d674-f3b2-4513-b0ee-11d4262e233c" width="800" controls></video>
 
 
 
