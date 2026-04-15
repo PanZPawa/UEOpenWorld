@@ -39,9 +39,6 @@
 <video src="https://github.com/user-attachments/assets/fb73d674-f3b2-4513-b0ee-11d4262e233c" width="800" controls></video>
 
 
-https://github.com/user-attachments/assets/053510e4-45a6-4d2d-bc5c-532af781fc48
-https://github.com/user-attachments/assets/3fd308e1-c979-4305-952a-f971e8e7fd65
-
 
 
 通过pawnseeing组件看到角色进行追踪
