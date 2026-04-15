@@ -37,7 +37,7 @@
 
 ai 定点巡逻、
 
-<video src="videos/ai巡逻.mp4"></video>
+<video src="videos/ai_pat.mp4"></video>
 
 
 
@@ -45,7 +45,7 @@ ai 定点巡逻、
 
 
 
-<video src="videos\ai追踪.mp4"></video>
+<video src="videos\ai_ch.mp4"></video>
 
 
 
@@ -57,13 +57,13 @@ ai 定点巡逻、
 
 角色靠近武器时按E 可以拾取武器
 
-<video src="videos/拾取.mp4"></video>
+<video src="videos/pick.mp4"></video>
 
 角色两段攻击
 
 
 
-<video src="videos\连击.mp4"></video>
+<video src="videos\comb.mp4"></video>
 
 ```c++
 void AMyCharacter::Attack()
@@ -105,7 +105,7 @@ void AMyCharacter::Attack()
 
 在击中缸时会施加一个临时场将物体打碎，同时会施加一个线性径向场将碎片击飞(未成功实现，还在找bug)
 
-<video src="videos/打碎.mp4"></video>
+<video src="videos/break.mp4"></video>
 
 
 
